@@ -1,11 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
     const pathname = usePathname();
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const navItems = [
         { name: "Home", href: "/" },
@@ -49,6 +52,22 @@ export default function Navbar() {
                             </span>
                         </Link>
 
+                        {/* Mobile Menu Button */}
+                        <div className="md:hidden flex items-center gap-4">
+                            <Link
+                                href="/contact"
+                                className="px-4 py-2 bg-primary text-white text-xs font-bold rounded-sm hover:bg-red-700 transition-colors shadow-lg shadow-primary/20 sm:hidden"
+                            >
+                                Quote
+                            </Link>
+                            <button
+                                onClick={() => setIsMobileMenuOpen(true)}
+                                className="p-2 text-gray-600 hover:text-primary transition-colors"
+                            >
+                                <Menu size={28} />
+                            </button>
+                        </div>
+
                         {/* Desktop Navigation */}
                         <div className="hidden md:flex items-center gap-8">
                             {navItems.map((item) => {
@@ -57,16 +76,23 @@ export default function Navbar() {
                                     <Link
                                         key={item.name}
                                         href={item.href}
-                                        className={`text-sm font-medium transition-colors ${isActive ? "text-primary font-bold" : "text-gray-600 hover:text-primary"
+                                        className={`relative px-4 py-1.5 text-sm font-bold tracking-wide transition-colors z-10 ${isActive ? "text-white" : "text-gray-600 hover:text-primary"
                                             }`}
                                     >
+                                        {isActive && (
+                                            <motion.span
+                                                layoutId="navbar-active"
+                                                className="absolute inset-0 bg-primary rounded-sm -z-10"
+                                                transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
+                                            />
+                                        )}
                                         {item.name}
                                     </Link>
                                 );
                             })}
                             <Link
                                 href="/contact"
-                                className="px-5 py-2.5 bg-primary text-white text-sm font-medium rounded-full hover:bg-red-700 transition-colors shadow-lg shadow-primary/20"
+                                className="px-5 py-2.5 bg-primary text-white text-sm font-bold uppercase tracking-wide rounded-sm hover:bg-red-700 transition-colors shadow-lg shadow-primary/20"
                             >
                                 Get a Quote
                             </Link>
@@ -74,6 +100,56 @@ export default function Navbar() {
                     </div>
                 </div>
             </nav>
+
+            {/* Mobile Menu Overlay */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, x: "100%" }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: "100%" }}
+                        transition={{ type: "tween", duration: 0.3 }}
+                        className="fixed inset-0 z-50 bg-slate-900 text-white md:hidden flex flex-col"
+                    >
+                        <div className="flex justify-between items-center p-4 border-b border-white/10">
+                            <span className="text-xl font-bold tracking-tight text-white">
+                                Salasar <span className="text-primary">Polychem</span>
+                            </span>
+                            <button
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="p-2 text-white hover:text-primary transition-colors"
+                            >
+                                <X size={28} />
+                            </button>
+                        </div>
+
+                        <div className="flex flex-col items-center justify-center flex-1 gap-8 p-8">
+                            {navItems.map((item) => (
+                                <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="text-2xl font-bold tracking-wide hover:text-primary transition-colors uppercase"
+                                >
+                                    {item.name}
+                                </Link>
+                            ))}
+                            <Link
+                                href="/contact"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="mt-4 px-8 py-3 bg-primary text-white text-lg font-bold uppercase tracking-wide rounded-sm hover:bg-red-700 transition-colors shadow-lg shadow-primary/20"
+                            >
+                                Get a Quote
+                            </Link>
+                        </div>
+
+                        <div className="p-6 bg-slate-800/50 text-center text-sm text-gray-400 border-t border-white/5">
+                            <p>Premium Industrial Solutions</p>
+                            <p className="mt-1">Since 2011</p>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
 }
