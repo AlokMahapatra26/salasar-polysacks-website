@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 export default function ContactPage() {
     return (
-        <main className="min-h-screen pt-20">
+        <main className="min-h-screen pt-32">
             <Navbar />
             <Contact />
             <Footer />

@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 export default function GalleryPage() {
     return (
-        <main className="min-h-screen pt-20">
+        <main className="min-h-screen pt-32">
             <Navbar />
             <Gallery />
             <Footer />

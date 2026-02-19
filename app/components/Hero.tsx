@@ -1,6 +1,6 @@
 export default function Hero() {
     return (
-        <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gray-50">
+        <section className="relative pt-36 pb-20 lg:pt-52 lg:pb-32 overflow-hidden bg-gray-50">
             <div className="absolute inset-0 z-0 opacity-10">
                 <div className="absolute inset-0 bg-[radial-gradient(#D32F2F_1px,transparent_1px)] [background-size:16px_16px]"></div>
             </div>
