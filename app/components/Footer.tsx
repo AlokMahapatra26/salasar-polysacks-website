@@ -67,8 +67,8 @@ export default function Footer() {
                         © {new Date().getFullYear()} Salasar Polysacks. All rights reserved.
                     </div>
                     <div className="flex gap-8 text-xs text-gray-600 uppercase tracking-wider">
-                        <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+                        <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+                        <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
                     </div>
                 </div>
             </div>

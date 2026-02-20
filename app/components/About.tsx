@@ -1,7 +1,7 @@
 export default function About({ detailed }: { detailed?: boolean }) {
     return (
-        <section id="about" className="py-24 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="about" className="py-24 relative industrial-grid">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <div className="relative">
                         <div className="aspect-video bg-gray-200 overflow-hidden border-2 border-gray-300">
@@ -18,7 +18,7 @@ export default function About({ detailed }: { detailed?: boolean }) {
                             <div className="w-12 h-[3px] bg-primary"></div>
                             <span className="text-primary font-bold tracking-wider uppercase text-sm">About Us</span>
                         </div>
-                        <h3 className="text-3xl font-extrabold text-secondary mb-6 uppercase tracking-tight">Innovative Manufacturing Solutions Since 1998</h3>
+                        <h3 className="text-3xl font-extrabold text-secondary mb-6 uppercase tracking-tight">Innovative Manufacturing Solutions Since 2005</h3>
 
                         <div className="space-y-5 text-gray-600 leading-relaxed">
                             <p>

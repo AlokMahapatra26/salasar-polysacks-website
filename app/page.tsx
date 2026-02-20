@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -52,9 +53,9 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <h2 className="text-3xl font-extrabold mb-6 uppercase tracking-tight">Ready to Optimize Your Packaging?</h2>
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">Get in touch with us for quotes, customizations, and bulk orders.</p>
-          <a href="/contact" className="inline-block px-10 py-4 bg-primary text-white font-bold uppercase tracking-wider hover:bg-red-700 transition-colors border-b-4 border-red-900">
+          <Link href="/contact" className="inline-block px-10 py-4 bg-primary text-white font-bold uppercase tracking-wider hover:bg-red-700 transition-colors border-b-4 border-red-900">
             Contact Us Today
-          </a>
+          </Link>
         </div>
       </section>
       <Footer />
