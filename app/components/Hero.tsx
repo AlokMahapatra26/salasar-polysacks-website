@@ -21,7 +21,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className="relative pt-36 pb-0 lg:pt-48 lg:pb-0 overflow-hidden bg-secondary text-white">
+        <section className="relative pt-36 pb-0 lg:pt-36 lg:pb-0 overflow-hidden bg-secondary text-white">
             {/* Dark industrial diagonal pattern */}
             <div
                 className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none"
@@ -58,10 +58,10 @@ export default function Hero() {
             <div className="absolute top-0 left-0 right-0 h-1 bg-primary z-10"></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pointer-events-none">
-                <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-center pb-8 lg:pb-16 pointer-events-auto">
-                    <div className="flex flex-col gap-6 lg:gap-8 order-1">
+                <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center pb-8 lg:pb-8 pointer-events-auto">
+                    <div className="flex flex-col gap-6 lg:gap-6 order-1">
 
-                        <h1 className="text-4xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white">
+                        <h1 className="text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-white">
                             HDPE Tarpaulin <br className="hidden lg:block" />
                             & Woven Bags <br className="hidden lg:block" />
                             <span className="text-primary">Manufacturer</span>
@@ -98,33 +98,33 @@ export default function Hero() {
                             </div>
                         </div>
 
-                        <p className="text-lg text-gray-400 max-w-lg leading-relaxed">
+                        <p className="text-lg lg:text-[15px] text-gray-400 max-w-lg leading-relaxed">
                             Leading manufacturer of high-grade Tarpaulin, HDPE Bags, and industrial packaging solutions. Engineered for strength, reliability, and performance.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Link
                                 href="/products"
-                                className="px-8 py-4 bg-primary text-white font-bold uppercase tracking-wider hover:bg-red-700 transition-colors text-center border-b-4 border-red-900"
+                                className="px-8 py-4 lg:px-7 lg:py-3.5 bg-primary text-white font-bold uppercase tracking-wider hover:bg-red-700 transition-colors text-center border-b-4 border-red-900 text-sm"
                             >
                                 Explore Products
                             </Link>
                             <Link
                                 href="/contact"
-                                className="px-8 py-4 bg-transparent text-white border-2 border-white/30 font-bold uppercase tracking-wider hover:border-white hover:bg-white/5 transition-all text-center"
+                                className="px-8 py-4 lg:px-7 lg:py-3.5 bg-transparent text-white border-2 border-white/30 font-bold uppercase tracking-wider hover:border-white hover:bg-white/5 transition-all text-center text-sm"
                             >
                                 Get a Quote
                             </Link>
                         </div>
 
-                        <div className="pt-8 grid grid-cols-3 gap-8 border-t border-white/10">
+                        <div className="pt-8 lg:pt-6 grid grid-cols-3 gap-8 border-t border-white/10">
                             {[
                                 { label: "Years Exp.", value: "25+" },
                                 { label: "Clients", value: "500+" },
                                 { label: "Quality", value: "100%" },
                             ].map((stat) => (
                                 <div key={stat.label}>
-                                    <div className="text-3xl lg:text-4xl font-black text-primary tracking-tight">{stat.value}</div>
+                                    <div className="text-3xl lg:text-3xl font-black text-primary tracking-tight">{stat.value}</div>
                                     <div className="text-xs text-gray-500 font-bold uppercase tracking-wider mt-1">{stat.label}</div>
                                 </div>
                             ))}
@@ -175,11 +175,11 @@ export default function Hero() {
                 </div>
 
                 {/* What We Manufacture - Desktop only (mobile has slider above) */}
-                <div className="hidden lg:block border-t border-white/10 py-8 pointer-events-auto">
-                    <p className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.25em] mb-5">What We Manufacture</p>
+                <div className="hidden lg:block border-t border-white/10 py-6 pointer-events-auto">
+                    <p className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.25em] mb-4">What We Manufacture</p>
                     <div className="grid grid-cols-3 gap-3">
                         {products.map((product) => (
-                            <Link key={product.name} href={product.href} className="group relative aspect-[4/3] overflow-hidden block border border-white/10">
+                            <Link key={product.name} href={product.href} className="group relative aspect-[16/9] overflow-hidden block border border-white/10">
                                 <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                                 <div className="absolute bottom-0 left-0 right-0 p-4 flex items-center justify-between">
