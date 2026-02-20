@@ -1,94 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShoppingBag, Tent, Cone } from "lucide-react";
+import Link from "next/link";
+import { products } from "../data/productData";
 
-const products = [
-    {
-        id: 1,
-        name: "HDPE Woven Bags",
-        description: "High-strength, durable bags perfect for industrial packaging (cement, fertilizer, grains). Customizable sizes and printing available.",
-        Icon: ShoppingBag,
-        features: ["Heavy Duty", "UV Stabilized", "Custom Printing"],
-    },
-    {
-        id: 2,
-        name: "Tarpaulins",
-        description: "Waterproof, weather-resistant tarpaulins for agricultural and industrial protection. Available in various GSM and colors.",
-        Icon: Tent,
-        features: ["Waterproof", "Tear Resistant", "All-Weather"],
-    },
-    {
-        id: 3,
-        name: "HDPE Baby Cones",
-        description: "Precision-engineered cones for the textile industry. Ensuring smooth yarn unwinding and high stability.",
-        Icon: Cone,
-        features: ["High Precision", "Durable", "Smooth Surface"],
-    },
-];
-
-const container = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1
-        }
-    }
-};
-
-const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
-};
-
-export default function Products({ limit }: { limit?: number }) {
-    // Add more products to demonstrate the "View More" functionality
-    const allProducts = [
-        ...products,
-        {
-            id: 4,
-            name: "PP Woven Fabrics",
-            description: "Strong, lightweight fabrics for diverse applications including packaging and geotextiles.",
-            Icon: ShoppingBag, // Using reusable icon for now
-            features: ["High Tensile Strength", "Lightweight", "Customizable"],
-        },
-        {
-            id: 5,
-            name: "Laminated Fabrics",
-            description: "Coated fabrics offering superior moisture protection and durability.",
-            Icon: Tent,
-            features: ["Moisture Proof", "Durable Coating", "Versatile"],
-        },
-        {
-            id: 6,
-            name: "BOPP Bags",
-            description: "Biaxially Oriented Polypropylene bags for high-quality printing and aesthetic appeal.",
-            Icon: ShoppingBag,
-            features: ["Excellent Clarity", "High Gloss", "Premium Look"],
-        }
-    ];
-
-    const displayedProducts = limit ? allProducts.slice(0, limit) : allProducts;
-
+export default function Products() {
     return (
-        <section id="products" className="py-24 bg-white">
+        <section id="products" className="py-24 bg-[#f8f8f8]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <motion.h2
+                <div className="mb-16">
+                    <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-primary font-bold tracking-wide uppercase text-sm mb-2"
+                        className="flex items-center gap-4 mb-4"
                     >
-                        Our Products
-                    </motion.h2>
+                        <div className="w-12 h-[3px] bg-primary"></div>
+                        <span className="text-primary font-bold tracking-wider uppercase text-sm">Our Products</span>
+                    </motion.div>
                     <motion.h3
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl font-bold text-secondary"
+                        className="text-4xl font-extrabold text-secondary uppercase tracking-tight"
                     >
                         Engineered for Excellence
                     </motion.h3>
@@ -97,59 +32,49 @@ export default function Products({ limit }: { limit?: number }) {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="mt-4 text-gray-600 max-w-2xl mx-auto"
+                        className="mt-4 text-gray-600 max-w-2xl"
                     >
-                        We manufacture a wide range of high-quality HDPE/PP products tailored to meet the diverse needs of industries worldwide.
+                        We manufacture a focused range of high-quality HDPE/PP products tailored to meet the demanding needs of industries worldwide.
                     </motion.p>
                 </div>
 
-                <motion.div
-                    variants={container}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    {displayedProducts.map((product) => (
+                <div className="grid md:grid-cols-3 gap-6">
+                    {products.map((product, index) => (
                         <motion.div
-                            key={product.id}
-                            variants={item}
-                            className="group relative bg-gray-50 rounded-2xl p-8 transition-all hover:-translate-y-2 hover:shadow-xl border border-gray-100"
+                            key={product.slug}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            className="group bg-white border border-gray-200 overflow-hidden hover:-translate-y-2 transition-all duration-300 hover:shadow-xl cursor-pointer"
                         >
-                            <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                                <product.Icon
-                                    strokeWidth={1.5}
-                                    className="w-8 h-8 group-hover:scale-110 transition-transform duration-300"
-                                />
-                            </div>
+                            <Link href={`/products/${product.slug}`} className="block">
+                                {/* Product Image */}
+                                <div className="relative aspect-[4/3] overflow-hidden">
+                                    <img
+                                        src={product.image}
+                                        alt={product.name}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                                    <div className="absolute bottom-4 left-4 right-4">
+                                        <h4 className="text-xl font-extrabold text-white uppercase tracking-wide">{product.name}</h4>
+                                    </div>
+                                </div>
 
-                            <h4 className="text-xl font-bold text-secondary mb-3">{product.name}</h4>
-                            <p className="text-gray-600 text-sm leading-relaxed mb-6">{product.description}</p>
+                                {/* Product Info */}
+                                <div className="p-6 border-l-4 border-l-primary">
+                                    <p className="text-gray-600 text-sm leading-relaxed mb-6">{product.description}</p>
 
-                            <ul className="space-y-2">
-                                {product.features.map((feature) => (
-                                    <li key={feature} className="flex items-center text-xs text-gray-500 font-medium">
-                                        <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></span>
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
-
-                            <div className="absolute inset-0 border-2 border-transparent group-hover:border-red-50 rounded-2xl pointer-events-none transition-colors duration-300"></div>
+                                    <span className="inline-flex items-center gap-2 text-sm font-bold text-secondary uppercase tracking-wider group-hover:text-primary transition-colors">
+                                        View Details
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                                    </span>
+                                </div>
+                            </Link>
                         </motion.div>
                     ))}
-                </motion.div>
-
-                {limit && limit < allProducts.length && (
-                    <div className="mt-12 text-center">
-                        <a
-                            href="/products"
-                            className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-red-700 md:py-4 md:text-lg transition-colors shadow-lg shadow-red-100"
-                        >
-                            View All Products
-                        </a>
-                    </div>
-                )}
+                </div>
             </div>
         </section>
     );

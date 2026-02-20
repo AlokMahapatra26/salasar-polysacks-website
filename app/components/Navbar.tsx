@@ -14,6 +14,7 @@ export default function Navbar() {
         { name: "Home", href: "/" },
         { name: "About", href: "/about" },
         { name: "Products", href: "/products" },
+        { name: "Process", href: "/process" },
         { name: "Gallery", href: "/gallery" },
         { name: "Contact", href: "/contact" },
     ];
@@ -21,34 +22,32 @@ export default function Navbar() {
     return (
         <header className="fixed top-0 left-0 right-0 z-50">
             {/* Top Contact Bar */}
-            <div className="bg-primary text-white py-2 text-xs font-medium">
+            <div className="bg-secondary text-white py-2 text-xs font-medium border-b border-white/10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                     <div className="flex items-center gap-6">
-                        <a href="mailto:info@salasarpolysacks.com" className="flex items-center gap-2 hover:text-white/80 transition-colors">
-                            {/* Mail Icon SVG since imports might be tricky with replace */}
+                        <a href="mailto:info@salasarpolysacks.com" className="flex items-center gap-2 hover:text-primary transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
                             <span>info@salasarpolysacks.com</span>
                         </a>
-                        <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-white/80 transition-colors">
-                            {/* Phone Icon SVG */}
+                        <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-primary transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                             <span>+91 98765 43210</span>
                         </a>
                     </div>
-                    <div className="hidden sm:block text-white/80">
+                    <div className="hidden sm:block text-white/60 font-bold uppercase tracking-wider text-[10px]">
                         ISO 9001:2015 Certified
                     </div>
                 </div>
             </div>
 
-            <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+            <nav className="bg-white border-b-2 border-primary">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-20">
                         {/* Logo */}
-                        <Link href="/" className="flex items-center gap-2">
-                            <img src="/logo.jpg" alt="Salasar Polychem Logo" className="h-12 w-auto object-contain" />
-                            <span className="text-xl font-bold tracking-tight text-secondary">
-                                Salasar <span className="text-primary">Polychem</span>
+                        <Link href="/" className="flex items-center gap-3">
+                            <img src="/logo.jpg" alt="Salasar Polysacks Logo" className="h-12 w-auto object-contain" />
+                            <span className="text-xl font-extrabold tracking-tight text-secondary uppercase">
+                                Salasar <span className="text-primary">Polysacks</span>
                             </span>
                         </Link>
 
@@ -56,33 +55,33 @@ export default function Navbar() {
                         <div className="md:hidden flex items-center gap-4">
                             <Link
                                 href="/contact"
-                                className="px-4 py-2 bg-primary text-white text-xs font-bold rounded-sm hover:bg-red-700 transition-colors shadow-lg shadow-primary/20 sm:hidden"
+                                className="px-4 py-2 bg-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-red-700 transition-colors sm:hidden"
                             >
                                 Quote
                             </Link>
                             <button
                                 onClick={() => setIsMobileMenuOpen(true)}
-                                className="p-2 text-gray-600 hover:text-primary transition-colors"
+                                className="p-2 text-gray-800 hover:text-primary transition-colors"
                             >
                                 <Menu size={28} />
                             </button>
                         </div>
 
                         {/* Desktop Navigation */}
-                        <div className="hidden md:flex items-center gap-8">
+                        <div className="hidden md:flex items-center gap-1">
                             {navItems.map((item) => {
-                                const isActive = pathname === item.href || (item.href === "/" && pathname === "/");
+                                const isActive = pathname === item.href;
                                 return (
                                     <Link
                                         key={item.name}
                                         href={item.href}
-                                        className={`relative px-4 py-1.5 text-sm font-bold tracking-wide transition-colors z-10 ${isActive ? "text-white" : "text-gray-600 hover:text-primary"
+                                        className={`relative px-5 py-2 text-sm font-bold tracking-wider uppercase transition-colors z-10 ${isActive ? "text-white" : "text-gray-700 hover:text-primary"
                                             }`}
                                     >
                                         {isActive && (
                                             <motion.span
                                                 layoutId="navbar-active"
-                                                className="absolute inset-0 bg-primary rounded-sm -z-10"
+                                                className="absolute inset-0 bg-secondary -z-10"
                                                 transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
                                             />
                                         )}
@@ -92,7 +91,7 @@ export default function Navbar() {
                             })}
                             <Link
                                 href="/contact"
-                                className="px-5 py-2.5 bg-primary text-white text-sm font-bold uppercase tracking-wide rounded-sm hover:bg-red-700 transition-colors shadow-lg shadow-primary/20"
+                                className="ml-4 px-6 py-3 bg-primary text-white text-sm font-bold uppercase tracking-wider hover:bg-red-700 transition-colors border-b-4 border-red-900"
                             >
                                 Get a Quote
                             </Link>
@@ -109,11 +108,11 @@ export default function Navbar() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: "100%" }}
                         transition={{ type: "tween", duration: 0.3 }}
-                        className="fixed inset-0 z-50 bg-slate-900 text-white md:hidden flex flex-col"
+                        className="fixed inset-0 z-50 bg-secondary text-white md:hidden flex flex-col"
                     >
                         <div className="flex justify-between items-center p-4 border-b border-white/10">
-                            <span className="text-xl font-bold tracking-tight text-white">
-                                Salasar <span className="text-primary">Polychem</span>
+                            <span className="text-xl font-extrabold tracking-tight text-white uppercase">
+                                Salasar <span className="text-primary">Polysacks</span>
                             </span>
                             <button
                                 onClick={() => setIsMobileMenuOpen(false)}
@@ -129,7 +128,7 @@ export default function Navbar() {
                                     key={item.name}
                                     href={item.href}
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="text-2xl font-bold tracking-wide hover:text-primary transition-colors uppercase"
+                                    className="text-2xl font-bold tracking-wider hover:text-primary transition-colors uppercase"
                                 >
                                     {item.name}
                                 </Link>
@@ -137,14 +136,14 @@ export default function Navbar() {
                             <Link
                                 href="/contact"
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="mt-4 px-8 py-3 bg-primary text-white text-lg font-bold uppercase tracking-wide rounded-sm hover:bg-red-700 transition-colors shadow-lg shadow-primary/20"
+                                className="mt-4 px-8 py-3 bg-primary text-white text-lg font-bold uppercase tracking-wider hover:bg-red-700 transition-colors border-b-4 border-red-900"
                             >
                                 Get a Quote
                             </Link>
                         </div>
 
-                        <div className="p-6 bg-slate-800/50 text-center text-sm text-gray-400 border-t border-white/5">
-                            <p>Premium Industrial Solutions</p>
+                        <div className="p-6 bg-black/30 text-center text-sm text-gray-500 border-t border-white/5">
+                            <p className="font-bold uppercase tracking-wider text-xs">Heavy Industrial Solutions</p>
                             <p className="mt-1">Since 2011</p>
                         </div>
                     </motion.div>
@@ -153,5 +152,3 @@ export default function Navbar() {
         </header>
     );
 }
-
-
