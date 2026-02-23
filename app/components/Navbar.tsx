@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { siteData } from "../data/siteData";
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -25,13 +26,13 @@ export default function Navbar() {
             <div className="bg-secondary text-white py-2 text-xs font-medium border-b border-white/10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                     <div className="flex items-center gap-6">
-                        <a href="mailto:info@salasarpolysacks.com" className="flex items-center gap-2 hover:text-primary transition-colors">
+                        <a href={`mailto:${siteData.contact.email}`} className="flex items-center gap-2 hover:text-primary transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
-                            <span>info@salasarpolysacks.com</span>
+                            <span>{siteData.contact.email}</span>
                         </a>
-                        <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-primary transition-colors">
+                        <a href={`tel:${siteData.contact.phone.replace(/\s+/g, '')}`} className="flex items-center gap-2 hover:text-primary transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                            <span>+91 98765 43210</span>
+                            <span>{siteData.contact.phone}</span>
                         </a>
                     </div>
                     <div className="hidden sm:block text-white/60 font-bold uppercase tracking-wider text-[10px]">
@@ -45,7 +46,7 @@ export default function Navbar() {
                     <div className="flex justify-between items-center h-20">
                         {/* Logo */}
                         <Link href="/" className="flex items-center gap-3">
-                            <img src="/logo.jpg" alt="Salasar Polysacks Logo" className="h-12 w-auto object-contain" />
+                            <img src={siteData.global.logo} alt="Salasar Polysacks Logo" className="h-12 w-auto object-contain" />
                             <span className="text-xl font-extrabold tracking-tight text-secondary uppercase">
                                 Salasar <span className="text-primary">Polysacks</span>
                             </span>

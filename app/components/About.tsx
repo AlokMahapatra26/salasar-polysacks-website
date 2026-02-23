@@ -1,13 +1,17 @@
+import { siteData } from "../data/siteData";
+
 export default function About({ detailed }: { detailed?: boolean }) {
     return (
         <section id="about" className="py-24 relative industrial-grid">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <div className="relative">
-                        <div className="aspect-video bg-gray-200 overflow-hidden border-2 border-gray-300">
-                            <div className="w-full h-full bg-gray-300 flex items-center justify-center text-gray-500 font-bold uppercase tracking-widest text-sm">
-                                State-of-the-art Facility
-                            </div>
+                        <div className="aspect-video bg-gray-200 overflow-hidden border-2 border-gray-300 relative group">
+                            <img
+                                src={siteData.about.image}
+                                alt="Salasar Polysacks Facility"
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            />
                         </div>
                         {/* Red accent bar */}
                         <div className="h-1 bg-primary"></div>

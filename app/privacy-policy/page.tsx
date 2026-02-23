@@ -1,3 +1,5 @@
+import { siteData } from "../data/siteData";
+
 export default function PrivacyPolicy() {
     return (
         <main className="pt-[112px] pb-24 bg-[#f8f8f8]">
@@ -60,8 +62,8 @@ export default function PrivacyPolicy() {
                             <h2 className="text-lg font-extrabold uppercase tracking-wider text-secondary mb-4">Contact Information</h2>
                             <p className="mb-2">If you have any questions regarding this Privacy Policy, please contact us at:</p>
                             <div className="font-bold text-secondary">
-                                <p>Email: info@salasarpolysacks.com</p>
-                                <p>Phone: +91 98765 43210</p>
+                                <p>Email: {siteData.contact.email}</p>
+                                <p>Phone: {siteData.contact.phone}</p>
                             </div>
                         </section>
                     </div>

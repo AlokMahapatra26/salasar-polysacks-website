@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import type { ProductData } from "../data/productData";
+import { siteData } from "../data/siteData";
 import ProductGallery from "./ProductGallery";
 
 export default function ProductDetail({ product }: { product: ProductData }) {
@@ -52,7 +53,7 @@ export default function ProductDetail({ product }: { product: ProductData }) {
                                     Request a Quote
                                 </a>
                                 <a
-                                    href="https://wa.me/919876543210"
+                                    href={`https://wa.me/${siteData.contact.phone.replace(/\D/g, "")}?text=${encodeURIComponent(`Hi, I'm interested in your ${product.name}. Could you please provide more details?`)}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block w-full text-center px-6 py-3 bg-[#25D366] text-white font-bold uppercase tracking-wider text-sm hover:bg-green-600 transition-colors"
@@ -232,10 +233,10 @@ export default function ProductDetail({ product }: { product: ProductData }) {
                             Get a Quote
                         </a>
                         <a
-                            href="tel:+919876543210"
+                            href={`tel:${siteData.contact.phone.replace(/\s+/g, '')}`}
                             className="px-10 py-4 bg-transparent text-white border-2 border-white/30 font-bold uppercase tracking-wider hover:border-white hover:bg-white/5 transition-all"
                         >
-                            Call +91 98765 43210
+                            Call {siteData.contact.phone}
                         </a>
                     </div>
                 </div>

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { siteData } from "../data/siteData";
+import { products } from "../data/productData";
 
 export default function Footer() {
     return (
@@ -7,7 +9,7 @@ export default function Footer() {
                 <div className="grid md:grid-cols-4 gap-12 mb-16">
                     <div className="col-span-1 md:col-span-1">
                         <div className="flex items-center gap-3 mb-6">
-                            <img src="/logo.jpg" alt="Salasar Polysacks Logo" className="h-10 w-auto object-contain bg-white p-0.5" />
+                            <img src={siteData.global.logo} alt="Salasar Polysacks Logo" className="h-10 w-auto object-contain bg-white p-0.5" />
                             <span className="text-lg font-extrabold tracking-tight text-white uppercase">Salasar Polysacks</span>
                         </div>
                         <p className="text-gray-500 text-sm leading-relaxed mb-6">
@@ -35,11 +37,13 @@ export default function Footer() {
                     <div>
                         <h4 className="font-extrabold text-sm mb-6 uppercase tracking-wider border-b border-white/10 pb-3">Products</h4>
                         <ul className="space-y-3 text-sm text-gray-500">
-                            <li>HDPE Woven Bags</li>
-                            <li>Industrial Tarpaulins</li>
-                            <li>HDPE Baby Cones</li>
-                            <li>Agro Shade Nets</li>
-                            <li>PP Woven Fabric</li>
+                            {products.map((product) => (
+                                <li key={product.slug}>
+                                    <Link href={`/products/${product.slug}`} className="hover:text-primary transition-colors">
+                                        {product.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
@@ -48,15 +52,19 @@ export default function Footer() {
                         <ul className="space-y-4 text-sm text-gray-500">
                             <li className="flex items-start gap-3">
                                 <span className="text-primary mt-0.5 text-xs font-bold">▸</span>
-                                <span>123 Industrial Area, Phase II,<br />New Delhi, India - 110020</span>
+                                <span>{siteData.contact.addressLine1}<br />{siteData.contact.addressLine2}</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="text-primary text-xs font-bold">▸</span>
-                                <span>+91 98765 43210</span>
+                                <span>{siteData.contact.phoneSecondary}</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="text-primary text-xs font-bold">▸</span>
-                                <span>info@salasarpolysacks.com</span>
+                                <span>{siteData.contact.phone}</span>
+                            </li>
+                            <li className="flex items-center gap-3">
+                                <span className="text-primary text-xs font-bold">▸</span>
+                                <span>{siteData.contact.email}</span>
                             </li>
                         </ul>
                     </div>

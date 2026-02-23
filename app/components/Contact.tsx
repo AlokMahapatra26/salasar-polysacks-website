@@ -2,8 +2,52 @@
 
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { useState, FormEvent } from "react";
+import { siteData } from "../data/siteData";
+import { products } from "../data/productData";
 
 export default function Contact() {
+    const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+    const [subject, setSubject] = useState("General Inquiry");
+
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setStatus("submitting");
+
+        const formData = new FormData(e.currentTarget);
+        const data = {
+            name: formData.get("name"),
+            phone: formData.get("phone"),
+            email: formData.get("email"),
+            subject: formData.get("subject"),
+            product: formData.get("product"),
+            message: formData.get("message"),
+        };
+
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                setStatus("success");
+                (e.target as HTMLFormElement).reset();
+                setSubject("General Inquiry"); // Reset subject
+            } else {
+                setStatus("error");
+            }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            setStatus("error");
+        }
+
+        setTimeout(() => setStatus("idle"), 5000);
+    };
+
     return (
         <section className="py-24 relative industrial-grid overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -47,9 +91,9 @@ export default function Contact() {
                                     <div>
                                         <div className="font-bold text-sm uppercase tracking-wider">Head Office</div>
                                         <p className="text-gray-400 mt-1 leading-relaxed">
-                                            123 Industrial Area, Phase II,<br />
-                                            Okhla, New Delhi - 110020<br />
-                                            India
+                                            {siteData.contact.addressLine1}<br />
+                                            {siteData.contact.addressLine2}<br />
+                                            {siteData.contact.addressCountry}
                                         </p>
                                     </div>
                                 </div>
@@ -60,8 +104,8 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <div className="font-bold text-sm uppercase tracking-wider">Phone</div>
-                                        <p className="text-gray-400 mt-1">+91 98765 43210</p>
-                                        <p className="text-gray-400">+91 11 2345 6789</p>
+                                        <p className="text-gray-400 mt-1">{siteData.contact.phone}</p>
+                                        <p className="text-gray-400">{siteData.contact.phoneSecondary}</p>
                                     </div>
                                 </div>
 
@@ -71,8 +115,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <div className="font-bold text-sm uppercase tracking-wider">Email</div>
-                                        <p className="text-gray-400 mt-1">info@salasarpolysacks.com</p>
-                                        <p className="text-gray-400">sales@salasarpolysacks.com</p>
+                                        <p className="text-gray-400 mt-1">{siteData.contact.email}</p>
                                     </div>
                                 </div>
 
@@ -82,8 +125,8 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <div className="font-bold text-sm uppercase tracking-wider">Business Hours</div>
-                                        <p className="text-gray-400 mt-1">Mon - Sat: 9:00 AM - 6:00 PM</p>
-                                        <p className="text-gray-400">Sunday: Closed</p>
+                                        <p className="text-gray-400 mt-1">{siteData.contact.businessHours}</p>
+                                        <p className="text-gray-400">{siteData.contact.businessHoursSunday}</p>
                                     </div>
                                 </div>
                             </div>
@@ -97,13 +140,14 @@ export default function Contact() {
                         viewport={{ once: true }}
                         className="bg-[#f8f8f8] p-8 border-2 border-gray-200"
                     >
-                        <form className="space-y-6">
+                        <form className="space-y-6" onSubmit={handleSubmit}>
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <label htmlFor="name" className="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-wider">Full Name</label>
                                     <input
                                         type="text"
                                         id="name"
+                                        name="name"
                                         className="w-full px-4 py-3 border-2 border-gray-300 focus:border-primary outline-none transition-colors bg-white text-sm"
                                         placeholder="John Doe"
                                         required
@@ -114,6 +158,7 @@ export default function Contact() {
                                     <input
                                         type="tel"
                                         id="phone"
+                                        name="phone"
                                         className="w-full px-4 py-3 border-2 border-gray-300 focus:border-primary outline-none transition-colors bg-white text-sm"
                                         placeholder="+91 98765 43210"
                                     />
@@ -125,6 +170,7 @@ export default function Contact() {
                                 <input
                                     type="email"
                                     id="email"
+                                    name="email"
                                     className="w-full px-4 py-3 border-2 border-gray-300 focus:border-primary outline-none transition-colors bg-white text-sm"
                                     placeholder="john@example.com"
                                     required
@@ -135,7 +181,10 @@ export default function Contact() {
                                 <label htmlFor="subject" className="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-wider">Subject</label>
                                 <select
                                     id="subject"
+                                    name="subject"
                                     className="w-full px-4 py-3 border-2 border-gray-300 focus:border-primary outline-none transition-colors bg-white text-sm appearance-none"
+                                    value={subject}
+                                    onChange={(e) => setSubject(e.target.value)}
                                 >
                                     <option>General Inquiry</option>
                                     <option>Quote Request</option>
@@ -144,10 +193,31 @@ export default function Contact() {
                                 </select>
                             </div>
 
+                            {subject === "Bulk Order" && (
+                                <motion.div
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: "auto" }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                >
+                                    <label htmlFor="product" className="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-wider">Interested Product</label>
+                                    <select
+                                        id="product"
+                                        name="product"
+                                        className="w-full px-4 py-3 border-2 border-gray-300 focus:border-primary outline-none transition-colors bg-white text-sm appearance-none"
+                                    >
+                                        <option value="">Select a product...</option>
+                                        {products.map(p => (
+                                            <option key={p.slug} value={p.name}>{p.name}</option>
+                                        ))}
+                                    </select>
+                                </motion.div>
+                            )}
+
                             <div>
                                 <label htmlFor="message" className="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-wider">Message</label>
                                 <textarea
                                     id="message"
+                                    name="message"
                                     rows={4}
                                     className="w-full px-4 py-3 border-2 border-gray-300 focus:border-primary outline-none transition-colors bg-white resize-none text-sm"
                                     placeholder="Tell us about your requirements..."
@@ -157,10 +227,22 @@ export default function Contact() {
 
                             <button
                                 type="submit"
-                                className="w-full px-8 py-4 bg-primary text-white font-bold uppercase tracking-wider hover:bg-red-700 transition-colors border-b-4 border-red-900 flex items-center justify-center gap-2"
+                                disabled={status === "submitting"}
+                                className="w-full px-8 py-4 bg-primary text-white font-bold uppercase tracking-wider hover:bg-red-700 transition-colors border-b-4 border-red-900 flex items-center justify-center gap-2 disabled:bg-gray-400 disabled:border-gray-500"
                             >
-                                Send Message
+                                {status === "submitting" ? "Sending..." : "Send Message"}
                             </button>
+
+                            {status === "success" && (
+                                <div className="p-4 bg-green-100 text-green-800 text-sm font-bold text-center border-l-4 border-green-500">
+                                    Message sent successfully! We'll get back to you soon.
+                                </div>
+                            )}
+                            {status === "error" && (
+                                <div className="p-4 bg-red-100 text-red-800 text-sm font-bold text-center border-l-4 border-red-500">
+                                    There was an error sending your message. Please try again.
+                                </div>
+                            )}
                         </form>
                     </motion.div>
                 </div>
@@ -174,7 +256,7 @@ export default function Contact() {
                     className="mt-20 overflow-hidden border-2 border-gray-200 h-[400px] relative bg-gray-100"
                 >
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14014.966774653303!2d77.2599222!3d28.5355161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3c545555555%3A0x6b728c892b5123d8!2sOkhla%20Industrial%20Estate%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1709280000000!5m2!1sen!2sin"
+                        src={siteData.contact.mapIframeSrc}
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}

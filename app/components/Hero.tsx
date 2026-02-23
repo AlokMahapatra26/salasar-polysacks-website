@@ -2,15 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
-const products = [
-    { name: "Woven Bags", href: "/products/hdpe-woven-bags", image: "https://5.imimg.com/data5/SELLER/Default/2025/4/502261733/RN/AU/WR/2375730/white-hdpe-bags-500x500.jpg" },
-    { name: "Tarpaulins", href: "/products/tarpaulins", image: "https://3.imimg.com/data3/JJ/WO/GLADMIN-145051/hdpe-woven-fabrics-250x250.jpg" },
-    { name: "Baby Cones", href: "/products/hdpe-baby-cones", image: "https://www.paperbagsindia.in/assets/images/hm-hdpe-ldpe-liners3.jpg" },
-];
+import { siteData } from "../data/siteData";
 
 export default function Hero() {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const products = siteData.hero.sliderProducts;
 
     // Auto-slide every 3 seconds on mobile
     useEffect(() => {
@@ -18,7 +14,7 @@ export default function Hero() {
             setCurrentSlide((prev) => (prev + 1) % products.length);
         }, 3000);
         return () => clearInterval(timer);
-    }, []);
+    }, [products.length]);
 
     return (
         <section className="relative pt-36 pb-0 lg:pt-36 lg:pb-0 overflow-hidden bg-secondary text-white">
@@ -131,46 +127,19 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    {/* Video - Desktop: iframe with autoplay */}
-                    <div className="relative order-2 hidden lg:block">
-                        <div className="aspect-video bg-black overflow-hidden relative border-2 border-white/10">
-                            <iframe
-                                className="absolute inset-0 w-full h-full"
-                                src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&mute=1&controls=0&loop=1&playlist=M7lc1UVf-VE&showinfo=0&rel=0&modestbranding=1"
-                                title="Industrial Manufacturing"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerPolicy="strict-origin-when-cross-origin"
-                                allowFullScreen
-                            ></iframe>
+                    {/* Video - Autoplaying on all devices */}
+                    <div className="relative order-2 w-full mt-8 lg:mt-0">
+                        <div className="aspect-video w-full bg-black overflow-hidden relative border-2 border-white/10">
+                            <video
+                                className="absolute top-0 left-0 w-full h-full object-cover"
+                                src={siteData.hero.video.videoUrl}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                            ></video>
                         </div>
-                        <div className="h-1 bg-primary"></div>
-                    </div>
-
-                    {/* Video - Mobile: thumbnail with play button (autoplay blocked on mobile) */}
-                    <div className="relative order-2 lg:hidden">
-                        <a
-                            href="https://www.youtube.com/watch?v=M7lc1UVf-VE"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block aspect-video bg-black overflow-hidden relative border-2 border-white/10 group"
-                        >
-                            <img
-                                src="https://img.youtube.com/vi/M7lc1UVf-VE/hqdefault.jpg"
-                                alt="Watch our manufacturing process"
-                                className="absolute inset-0 w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
-                            {/* Play button */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3" /></svg>
-                                </div>
-                            </div>
-                            <div className="absolute bottom-3 left-3">
-                                <span className="text-[10px] font-bold text-white/80 uppercase tracking-wider">▶ Watch Manufacturing Process</span>
-                            </div>
-                        </a>
-                        <div className="h-1 bg-primary"></div>
+                        <div className="h-1 w-full bg-primary"></div>
                     </div>
                 </div>
 

@@ -3,18 +3,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { siteData } from "../data/siteData";
 
-const galleryImages = [
-    { id: 1, title: "Extrusion Line", category: "Production", description: "High-capacity tape extrusion lines ensuring consistent quality.", color: "bg-slate-300", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" },
-    { id: 2, title: "Weaving Loom", category: "Weaving", description: "Advanced circular looms for heavy-duty fabric production.", color: "bg-slate-400", image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800" },
-    { id: 3, title: "Storage Warehouse", category: "Storage", description: "Spacious warehousing for raw materials and finished goods.", color: "bg-slate-300", image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800" },
-    { id: 4, title: "Quality Lab", category: "Quality Control", description: "State-of-the-art lab for tensile and durability testing.", color: "bg-slate-400", image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800" },
-    { id: 5, title: "Printing Unit", category: "Finishing", description: "High-speed printing for customized branding on bags.", color: "bg-slate-300", image: "https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&q=80&w=800" },
-    { id: 6, title: "Dispatch Area", category: "Logistics", description: "Efficient loading bays for timely global shipments.", color: "bg-slate-400", image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&q=80&w=800" },
-    { id: 7, title: "Raw Materials", category: "Inventory", description: "Climate-controlled storage for polymer granules.", color: "bg-slate-300", image: "https://images.unsplash.com/photo-1506469717960-433cebe3f181?auto=format&fit=crop&q=80&w=800" },
-    { id: 8, title: "Sewing Section", category: "Finishing", description: "Automated sewing lines for precise bag formation.", color: "bg-slate-400", image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&q=80&w=800" },
-    { id: 9, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&q=80&w=800" },
-];
+const galleryImages = siteData.gallery.images;
 
 const categories = ["All", ...Array.from(new Set(galleryImages.map(img => img.category)))];
 

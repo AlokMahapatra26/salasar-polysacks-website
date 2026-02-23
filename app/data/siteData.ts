@@ -1,0 +1,143 @@
+export const siteData = {
+    global: {
+        logo: "/logo.jpg",
+    },
+    hero: {
+        sliderProducts: [
+            { name: "Woven Bags", href: "/products/hdpe-woven-bags", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827089/71_sonqlg.jpg" },
+            {
+                name: "Tarpaulins", href: "/products/tarpaulins", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827112/48_t9lkly.jpg"
+            },
+            { name: "Baby Cones", href: "/products/hdpe-baby-cones", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/77_cd384c.jpg" },
+        ],
+        video: {
+            videoUrl: "https://res.cloudinary.com/dsjgnpsjv/video/upload/v1771833899/FINAL_yjeaev.mp4",
+            thumbnailUrl: "https://img.youtube.com/vi/M7lc1UVf-VE/hqdefault.jpg"
+        }
+    },
+    about: {
+        image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827113/8_g4eont.jpg",
+    },
+    manufacturing: {
+        commonSteps: [
+            {
+                step: 1,
+                title: "Raw Material Selection",
+                description: "High-density polyethylene (HDPE) and polypropylene (PP) granules are sourced from certified suppliers. Each batch is tested for Melt Flow Index (MFI), density, and purity before production begins.",
+                image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827163/59_ji102g.jpg",
+                applies: "All Products",
+            },
+            {
+                step: 2,
+                title: "Extrusion",
+                description: "Granules are fed into high-capacity extruders where they are melted at 200-250°C. For bags and tarpaulins, the melt is drawn through a flat die to form thin tapes. For baby cones, the melt is injection-molded.",
+                image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/24_lklupv.jpg",
+                applies: "All Products",
+            },
+            {
+                step: 3,
+                title: "Winding",
+                description: "Extruded tapes are quenched in a water bath, stretched for orientation, then wound onto individual bobbins at high speed. Proper tension control ensures uniform tape quality for the next stage.",
+                image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827113/25_h612tr.jpg",
+                applies: "Bags & Tarpaulins",
+            },
+            {
+                step: 4,
+                title: "Weaving",
+                description: "Bobbins are loaded onto circular or flat looms. Tapes are interwoven in a plain weave pattern to create tubular or flat fabric. The GSM (grams per square meter) is controlled by adjusting tape width and loom settings.",
+                image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827114/9_rnftv4.jpg",
+                applies: "Bags & Tarpaulins",
+            },
+            {
+                step: 5,
+                title: "Lamination",
+                description: "For moisture-resistant properties, woven fabric is coated with a thin LDPE or PP layer through extrusion lamination — creating a waterproof barrier.",
+                image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827098/55_jh37dx.jpg",
+            },
+            {
+                step: 6,
+                title: "Printing",
+                description: "Custom branding and regulatory markings are applied using flexographic printing machines. Up to 6-color printing with solvent or water-based inks.",
+                image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827112/15_ccji9d.jpg",
+            },
+            {
+                step: 7,
+                title: "Cutting & Stitching",
+                description: "Fabric is cut to dimensions and stitched on industrial sewing machines with heavy-duty HDPE threads for secure closure.",
+                image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827100/10_fbrcsx.jpg",
+            },
+        ],
+        branchSteps: {},
+        finalSteps: [
+            {
+                step: 8,
+                title: "Quality Control & Testing",
+                description: "Every batch undergoes rigorous testing — tensile strength, tear resistance, drop test, seam strength, dimensional accuracy, and surface quality. Only products meeting BIS/ISO standards are cleared.",
+                image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827105/1_ujkshl.jpg",
+                applies: "All Products",
+            },
+            {
+                step: 9,
+                title: "Packaging & Dispatch",
+                description: "Finished products are baled, strapped, and loaded for delivery. Our logistics network ensures timely dispatch across India and to export destinations worldwide.",
+                image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827105/38_gizzqm.jpg",
+                applies: "All Products",
+            },
+        ]
+    },
+    gallery: {
+        images: [
+            { id: 1, title: "Extrusion Line", category: "Production", description: "High-capacity tape extrusion lines ensuring consistent quality.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827164/13_adtqir.jpg" },
+            { id: 2, title: "Weaving Loom", category: "Weaving", description: "Advanced circular looms for heavy-duty fabric production.", color: "bg-slate-400", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827162/3_de38hh.jpg" },
+            { id: 3, title: "Storage Warehouse", category: "Storage", description: "Spacious warehousing for raw materials and finished goods.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827163/56_elxmhe.jpg" },
+            { id: 4, title: "Quality Lab", category: "Quality Control", description: "State-of-the-art lab for tensile and durability testing.", color: "bg-slate-400", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827114/9_rnftv4.jpg" },
+            { id: 5, title: "Printing Unit", category: "Finishing", description: "High-speed printing for customized branding on bags.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827114/69_job43w.jpg" },
+            { id: 6, title: "Dispatch Area", category: "Logistics", description: "Efficient loading bays for timely global shipments.", color: "bg-slate-400", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827114/66_ul1xoy.jpg" },
+            { id: 7, title: "Raw Materials", category: "Inventory", description: "Climate-controlled storage for polymer granules.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827113/25_h612tr.jpg" },
+            { id: 8, title: "Sewing Section", category: "Finishing", description: "Automated sewing lines for precise bag formation.", color: "bg-slate-400", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827106/12_jbhvki.jpg" },
+            { id: 9, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827106/27_wll3yz.jpg" },
+            { id: 10, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827106/76_cn4wxm.jpg" },
+            { id: 11, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827106/57_hoxpzi.jpg" },
+            { id: 12, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827106/58_hf2gvr.jpg" },
+            { id: 13, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827105/38_gizzqm.jpg" },
+            { id: 14, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827105/1_ujkshl.jpg" },
+            { id: 15, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827102/61_ykstxd.jpg" },
+            { id: 16, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827102/5_trpafg.jpg" },
+            { id: 17, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827100/10_fbrcsx.jpg" },
+            { id: 18, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827100/68_p504rf.jpg" },
+            { id: 19, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827098/18_fdzfru.jpg" },
+            { id: 20, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827098/55_jh37dx.jpg" },
+            { id: 21, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827097/67_zgn5x4.jpg" },
+            { id: 22, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827097/49_usgorf.jpg" },
+            { id: 23, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827097/30_x0ry20.jpg" },
+            { id: 24, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827097/53_qjl8vc.jpg" },
+            { id: 25, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827096/21_t3l7xj.jpg" },
+            { id: 26, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827096/11_v49rrn.jpg" },
+            { id: 27, title: "Research Wing", category: "Alok", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827096/33_f8zm8q.jpg" },
+            { id: 28, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827093/6_jq3kuz.jpg" },
+            { id: 29, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/54_qunofd.jpg" },
+            { id: 30, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/19_rnm7mt.jpg" },
+            { id: 31, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/24_lklupv.jpg" },
+            { id: 32, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/29_mv3eni.jpg" },
+            { id: 33, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827091/14_nmw15f.jpg" },
+            { id: 34, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827090/63_wb2bwt.jpg" },
+            { id: 35, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827090/36_vdhord.jpg" },
+            { id: 36, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827090/31_ch6dny.jpg" },
+            { id: 37, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827090/32_byojtv.jpg" },
+            { id: 38, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827090/22_jjnrh3.jpg" },
+            { id: 39, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827090/34_dqczal.jpg" },
+            { id: 40, title: "Research Wing", category: "R&D", description: "Dedicated facility for developing new polymer blends.", color: "bg-slate-300", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827089/23_hdnkze.jpg" },
+        ]
+    },
+    contact: {
+        phone: "+91 6358811335",
+        phoneSecondary: " +91 8238619900",
+        email: "info@salasarpolysacks.com",
+        addressLine1: "Plot No, 4, Sr. No. 46/1-P , Daman Ganga Ind, Estate ",
+        addressLine2: "Naroli Road , Athal , Silvassa (U.T.) ",
+        addressCountry: "India",
+        businessHours: "Mon - Sat: 9:00 AM - 6:00 PM",
+        businessHoursSunday: "Sunday: Closed",
+        mapIframeSrc: "https://www.google.com/maps/embed?pb=!1m24!1m12!1m3!1d2714.5642048243058!2d72.9802693497988!3d20.268039753950838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m9!3e0!4m3!3m2!1d20.2679752!2d72.97848069999999!4m3!3m2!1d20.267958399999998!2d72.9782175!5e1!3m2!1sen!2sin!4v1771836990203!5m2!1sen!2sin",
+    }
+};
