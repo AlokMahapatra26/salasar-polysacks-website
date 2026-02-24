@@ -17,7 +17,7 @@ export default function Hero() {
     }, [products.length]);
 
     return (
-        <section className="relative pt-36 pb-0 lg:pt-36 lg:pb-0 overflow-hidden bg-secondary text-white">
+        <section className="relative min-h-screen pt-36 pb-0 lg:pt-36 lg:pb-0 overflow-hidden bg-secondary text-white flex flex-col">
             {/* Dark industrial diagonal pattern */}
             <div
                 className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none"
@@ -53,8 +53,8 @@ export default function Hero() {
             {/* Red accent line top */}
             <div className="absolute top-0 left-0 right-0 h-1 bg-primary z-10"></div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pointer-events-none">
-                <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center pb-8 lg:pb-8 pointer-events-auto">
+            <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 pointer-events-none flex-1 flex flex-col">
+                <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center flex-1 my-auto pb-8 lg:pb-8 pointer-events-auto">
                     <div className="flex flex-col gap-6 lg:gap-6 order-1">
 
                         <h1 className="text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-white">
@@ -144,9 +144,9 @@ export default function Hero() {
                 </div>
 
                 {/* What We Manufacture - Desktop only (mobile has slider above) */}
-                <div className="hidden lg:block border-t border-white/10 py-6 pointer-events-auto">
+                <div className="hidden lg:block border-t border-white/10 py-6 pointer-events-auto mt-auto">
                     <p className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.25em] mb-4">What We Manufacture</p>
-                    <div className="grid grid-cols-3 gap-3">
+                    <div className="grid grid-cols-4 gap-3">
                         {products.map((product) => (
                             <Link key={product.name} href={product.href} className="group relative aspect-[16/9] overflow-hidden block border border-white/10">
                                 <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />

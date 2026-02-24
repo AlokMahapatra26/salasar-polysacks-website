@@ -234,6 +234,49 @@ export const products: ProductData[] = [
             "REACH Certified",
         ],
     },
+    {
+        slug: "hdpe-splitted-rolls",
+        name: "HDPE Splitted Rolls",
+        tagline: "High-quality splitted rolls for diverse industrial applications",
+        image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/19_rnm7mt.jpg",
+        heroImage: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/19_rnm7mt.jpg",
+        gallery: [
+            "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/19_rnm7mt.jpg",
+            "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827097/30_x0ry20.jpg",
+            "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827090/36_vdhord.jpg"
+        ],
+        description: "Premium HDPE splitted rolls manufactured with precision for high tensile strength and durability, suitable for various packaging and industrial needs.",
+        detailedDescription: [
+            "Our HDPE Splitted Rolls are produced using top-grade High-Density Polyethylene to ensure superior strength and flexibility.",
+            "These rolls are ideal for manufacturing smaller woven bags, wrapping materials, and specialized packaging solutions.",
+            "Available in multiple colors and specifications to meet standard and customized industrial requirements."
+        ],
+        specifications: [
+            { label: "Material", value: "100% Virgin HDPE" },
+            { label: "Width", value: "Customizable" },
+            { label: "Color", value: "White, Blue, Custom Colors" },
+            { label: "Strength", value: "High Tensile Strength" }
+        ],
+        applications: [
+            "Packaging Industry",
+            "Wrapping Applications",
+            "Woven Sack Manufacturing",
+            "Industrial Covers"
+        ],
+        features: [
+            "High tensile strength",
+            "Uniform width and thickness",
+            "Tear and puncture resistant",
+            "Durable and long-lasting"
+        ],
+        sizes: [
+            "Custom sizes available on request"
+        ],
+        certifications: [
+            "ISO 9001:2015",
+            "BIS Compliant"
+        ],
+    },
 ];
 
 export function getProductBySlug(slug: string): ProductData | undefined {

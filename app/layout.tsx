@@ -10,6 +10,8 @@ const outfit = Outfit({
   display: "swap",
 });
 
+import ScrollToTop from "./components/ScrollToTop";
+
 export const metadata: Metadata = {
   title: "Salasar Polysacks | Quality Manufacturing",
   description: "Leading manufacturer of Tarpaulin, HDPE bags, HDPE baby cones, and more. Quality and durability you can trust.",
@@ -36,6 +38,7 @@ export default function RootLayout({
           {children}
         </SmoothScroll>
         <WhatsAppButton />
+        <ScrollToTop />
       </body>
     </html>
   );

@@ -5,13 +5,22 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useState, FormEvent } from "react";
 import { siteData } from "../data/siteData";
 import { products } from "../data/productData";
+import { Turnstile } from '@marsidev/react-turnstile';
 
 export default function Contact() {
     const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
     const [subject, setSubject] = useState("General Inquiry");
+    const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        if (!turnstileToken) {
+            setStatus("error");
+            console.error("Please complete the captcha.");
+            return;
+        }
+
         setStatus("submitting");
 
         const formData = new FormData(e.currentTarget);
@@ -22,6 +31,7 @@ export default function Contact() {
             subject: formData.get("subject"),
             product: formData.get("product"),
             message: formData.get("message"),
+            turnstileToken: turnstileToken,
         };
 
         try {
@@ -225,9 +235,21 @@ export default function Contact() {
                                 ></textarea>
                             </div>
 
+                            <div className="flex justify-center">
+                                <Turnstile
+                                    siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''}
+                                    onSuccess={(token) => setTurnstileToken(token)}
+                                    onError={() => setStatus("error")}
+                                    options={{
+                                        theme: 'light',
+                                        size: 'normal'
+                                    }}
+                                />
+                            </div>
+
                             <button
                                 type="submit"
-                                disabled={status === "submitting"}
+                                disabled={status === "submitting" || !turnstileToken}
                                 className="w-full px-8 py-4 bg-primary text-white font-bold uppercase tracking-wider hover:bg-red-700 transition-colors border-b-4 border-red-900 flex items-center justify-center gap-2 disabled:bg-gray-400 disabled:border-gray-500"
                             >
                                 {status === "submitting" ? "Sending..." : "Send Message"}

@@ -9,6 +9,7 @@ export const siteData = {
                 name: "Tarpaulins", href: "/products/tarpaulins", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827112/48_t9lkly.jpg"
             },
             { name: "Baby Cones", href: "/products/hdpe-baby-cones", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/77_cd384c.jpg" },
+            { name: "Splitted Rolls", href: "/products/hdpe-splitted-rolls", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/19_rnm7mt.jpg" },
         ],
         video: {
             videoUrl: "https://res.cloudinary.com/dsjgnpsjv/video/upload/v1771833899/FINAL_yjeaev.mp4",
@@ -139,5 +140,29 @@ export const siteData = {
         businessHours: "Mon - Sat: 9:00 AM - 6:00 PM",
         businessHoursSunday: "Sunday: Closed",
         mapIframeSrc: "https://www.google.com/maps/embed?pb=!1m24!1m12!1m3!1d2714.5642048243058!2d72.9802693497988!3d20.268039753950838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m9!3e0!4m3!3m2!1d20.2679752!2d72.97848069999999!4m3!3m2!1d20.267958399999998!2d72.9782175!5e1!3m2!1sen!2sin!4v1771836990203!5m2!1sen!2sin",
-    }
+    },
+    clients: [
+        "Ambuja Cement",
+        "UltraTech Cement",
+        "ACC Limited",
+        "Dalmia Bharat",
+        "Shree Cement",
+        "JK Cement",
+        "Birla Corporation",
+        "India Cements",
+        "Nuvoco Vistas",
+        "Wonder Cement",
+        "Prism Johnson",
+        "Orient Cement",
+        "Zuari Cement",
+        "Sanghi Industries",
+        "Heidelberg Cement",
+    ],
+    certificates: [
+        { name: "ISO 9001:2015", description: "Quality Management System Certification", pdf: "/certificates/iso-9001.pdf" },
+        { name: "BIS Certification", description: "Bureau of Indian Standards Compliance", pdf: "/certificates/bis-cert.pdf" },
+        { name: "REACH Certification", description: "EU REACH Compliance for Chemical Safety", pdf: "/certificates/reach-cert.pdf" },
+        { name: "RoHS Compliance", description: "Restriction of Hazardous Substances", pdf: "/certificates/rohs-cert.pdf" },
+        { name: "FDA Compliance", description: "Food-grade Packaging Standards", pdf: "/certificates/fda-cert.pdf" },
+    ],
 };

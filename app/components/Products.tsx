@@ -38,7 +38,7 @@ export default function Products() {
                     </motion.p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid sm:grid-cols-2 gap-6">
                     {products.map((product, index) => (
                         <motion.div
                             key={product.slug}
