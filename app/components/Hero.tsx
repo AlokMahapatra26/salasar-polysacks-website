@@ -115,7 +115,7 @@ export default function Hero() {
 
                         <div className="pt-8 lg:pt-6 grid grid-cols-3 gap-8 border-t border-white/10">
                             {[
-                                { label: "Years Exp.", value: "25+" },
+                                { label: "Years Exp.", value: "20+" },
                                 { label: "Clients", value: "500+" },
                                 { label: "Quality", value: "100%" },
                             ].map((stat) => (

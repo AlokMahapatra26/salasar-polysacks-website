@@ -40,36 +40,40 @@ export default function Certificates() {
                     </motion.p>
                 </div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-6 lg:gap-8">
                     {certificates.map((cert, index) => (
                         <motion.div
                             key={cert.name}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="bg-white border-2 border-gray-200 p-6 hover:border-primary hover:shadow-lg transition-all duration-300 group"
+                            className="bg-white p-3 shadow-xl border-2 border-gray-100 flex flex-col group w-full max-w-[280px]"
                         >
-                            <div className="flex items-start gap-4 mb-4">
-                                <div className="w-12 h-12 bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors duration-300">
-                                    <Shield className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" />
-                                </div>
-                                <div>
-                                    <h4 className="font-extrabold text-secondary uppercase tracking-wider text-sm">{cert.name}</h4>
-                                    <p className="text-gray-500 text-xs mt-1">{cert.description}</p>
-                                </div>
+                            <div className="relative w-full overflow-hidden border border-gray-200" style={{ paddingBottom: '120%' /* Shorter Aspect Ratio */ }}>
+                                {/* Using iframe with pointer-events-none or specific toolbar params to disable download UI until they click the link, but showing the actual PDF inline */}
+                                <iframe
+                                    src={`${cert.pdf}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                    title={cert.name}
+                                    style={{ border: 'none' }}
+                                />
+                                {/* Overlay to prevent internal nested scrolling over the iframe in some browsers */}
+                                <div className="absolute inset-0 z-10 hidden group-hover:block bg-black/5 transition-colors"></div>
                             </div>
 
-                            <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                                <FileText className="w-5 h-5 text-gray-400" />
+                            <div className="pt-4 pb-2 text-center flex-1 flex flex-col justify-end">
+                                <h4 className="font-extrabold text-secondary uppercase tracking-wider text-base mb-1">{cert.name}</h4>
+                                <p className="text-gray-500 text-xs mb-4 line-clamp-2">{cert.description}</p>
+
                                 <a
                                     href={cert.pdf}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-sm font-bold text-secondary uppercase tracking-wider hover:text-primary transition-colors cursor-pointer"
+                                    className="inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-primary px-4 py-2 uppercase tracking-wider hover:bg-red-700 transition-colors w-full border-b-4 border-red-900"
                                 >
-                                    View Certificate
-                                    <Download className="w-4 h-4" />
+                                    <FileText className="w-3 h-3" />
+                                    View Full
                                 </a>
                             </div>
                         </motion.div>

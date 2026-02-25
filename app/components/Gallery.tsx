@@ -90,16 +90,12 @@ export default function Gallery({ limit }: { limit?: number }) {
                                     className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700"
                                 />
 
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                                    <span className="inline-block px-3 py-1 mb-2 text-[10px] font-bold text-white bg-primary uppercase tracking-wider">
+                                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100 flex items-center justify-center">
+                                    <span className="inline-block px-4 py-2 text-sm font-bold text-white bg-primary uppercase tracking-wider shadow-lg rounded-sm">
                                         {item.category}
                                     </span>
-                                    <h4 className="text-lg font-extrabold text-white mb-1 uppercase tracking-wide">{item.title}</h4>
-                                    <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 line-clamp-2">
-                                        {item.description}
-                                    </p>
                                 </div>
                             </motion.div>
                         ))}
@@ -147,12 +143,10 @@ export default function Gallery({ limit }: { limit?: number }) {
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <div className="p-6 md:p-8">
-                                <span className="inline-block px-3 py-1 mb-3 text-[10px] font-bold text-white bg-primary uppercase tracking-wider">
+                            <div className="p-6 md:p-8 flex justify-center">
+                                <span className="inline-block px-6 py-2 text-sm font-bold text-white bg-primary uppercase tracking-wider rounded-sm">
                                     {selectedImage.category}
                                 </span>
-                                <h3 className="text-2xl font-extrabold text-white mb-2 uppercase tracking-wide">{selectedImage.title}</h3>
-                                <p className="text-gray-400 leading-relaxed max-w-3xl">{selectedImage.description}</p>
                             </div>
                         </motion.div>
                     </motion.div>
