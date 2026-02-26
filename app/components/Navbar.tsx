@@ -72,22 +72,60 @@ export default function Navbar() {
                         <div className="hidden md:flex items-center gap-1">
                             {navItems.map((item) => {
                                 const isActive = pathname === item.href;
+                                const isProducts = item.name === "Products";
+
                                 return (
-                                    <Link
-                                        key={item.name}
-                                        href={item.href}
-                                        className={`relative px-5 py-2 text-sm font-bold tracking-wider uppercase transition-colors z-10 ${isActive ? "text-white" : "text-gray-700 hover:text-primary"
-                                            }`}
-                                    >
-                                        {isActive && (
-                                            <motion.span
-                                                layoutId="navbar-active"
-                                                className="absolute inset-0 bg-secondary -z-10"
-                                                transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
-                                            />
+                                    <div key={item.name} className={`relative group ${isProducts ? 'h-20 flex items-center' : ''}`}>
+                                        <Link
+                                            href={item.href}
+                                            className={`relative px-5 py-2 text-sm font-bold tracking-wider uppercase transition-colors z-10 ${isActive ? "text-white" : "text-gray-700 group-hover:text-primary"
+                                                }`}
+                                        >
+                                            {isActive && (
+                                                <motion.span
+                                                    layoutId="navbar-active"
+                                                    className="absolute inset-0 bg-secondary -z-10"
+                                                    transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
+                                                />
+                                            )}
+                                            {item.name}
+                                        </Link>
+
+                                        {/* Products Dropdown */}
+                                        {isProducts && (
+                                            <div className="absolute top-[80px] -left-16 w-[600px] bg-white border border-gray-100 shadow-2xl rounded-b-xl opacity-0 invisible translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 pointer-events-none group-hover:pointer-events-auto flex flex-col overflow-hidden">
+                                                <div className="h-1 w-full bg-primary relative z-10"></div>
+                                                <div className="p-6">
+                                                    <div className="flex items-center gap-3 mb-6">
+                                                        <div className="w-8 h-[2px] bg-primary/30"></div>
+                                                        <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">Our Range</span>
+                                                        <div className="flex-1 h-[2px] bg-primary/10"></div>
+                                                    </div>
+                                                    <div className="grid grid-cols-2 gap-4">
+                                                        {siteData.hero.sliderProducts.map((prod) => (
+                                                            <Link
+                                                                key={prod.name}
+                                                                href={prod.href}
+                                                                className="group/item flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-100 transition-all duration-300"
+                                                            >
+                                                                <div className="w-16 h-16 rounded overflow-hidden shadow-sm flex-shrink-0 relative">
+                                                                    <div className="absolute inset-0 bg-secondary/10 group-hover/item:bg-transparent transition-colors z-10"></div>
+                                                                    <img src={prod.image} alt={prod.name} className="w-full h-full object-cover grayscale opacity-80 group-hover/item:grayscale-0 group-hover:opacity-100 group-hover/item:scale-110 transition-all duration-500" />
+                                                                </div>
+                                                                <div className="flex flex-col">
+                                                                    <span className="text-sm font-bold text-secondary uppercase tracking-tight group-hover/item:text-primary transition-colors">{prod.name}</span>
+                                                                    <span className="text-[10px] text-gray-400 mt-1 uppercase font-medium tracking-wider flex items-center gap-1 group-hover/item:text-gray-500 transition-colors">
+                                                                        View Details
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-primary opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                                                                    </span>
+                                                                </div>
+                                                            </Link>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         )}
-                                        {item.name}
-                                    </Link>
+                                    </div>
                                 );
                             })}
                             <Link
@@ -145,7 +183,7 @@ export default function Navbar() {
 
                         <div className="p-6 bg-black/30 text-center text-sm text-gray-500 border-t border-white/5">
                             <p className="font-bold uppercase tracking-wider text-xs">Heavy Industrial Solutions</p>
-                            <p className="mt-1">Since 2011</p>
+                            <p className="mt-1">Since 2005</p>
                         </div>
                     </motion.div>
                 )}

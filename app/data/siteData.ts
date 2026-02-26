@@ -131,6 +131,64 @@ export const siteData = {
 
         ]
     },
+    applications: [
+        {
+            name: "Agriculture",
+            description: "Packaging for fertilizers, seeds, grains, and animal feed. Ensuring moisture resistance and breathability where needed.",
+            image: "https://4.imimg.com/data4/QT/LA/MY-4469236/agricultural-tarpaulins-500x500.jpg"
+        },
+        {
+            name: "Construction",
+            description: "Heavy-duty bags for cement, wall putty, and building materials. Designed for extreme weight tolerance and rough handling.",
+            image: "https://cdn.shopify.com/s/files/1/0727/8303/6698/files/acae323fb87c3a0bba67e3e1a450a34_480x480.jpg?v=1714484782"
+        },
+        {
+            name: "Chemicals & Minerals",
+            description: "Safe, non-reactive, and durable packaging tailored for industrial chemicals, polymers, and raw mineral resources.",
+            image: "https://media.istockphoto.com/id/946876888/photo/transparent-polyethylene-granules-on-dark-hdpe-plastic-pellets-plastic-raw-material-idpe.jpg?s=612x612&w=0&k=20&c=Y2oSMFLuXkSCgrAo0pdQ0VbU2C7r_SCEoUr8OKKha3Y="
+        },
+        {
+            name: "Logistics & Transport",
+            description: "Weather-resistant tarpaulins and wrapping solutions that protect cargo across global rail, road, and sea networks.",
+            image: "https://t4.ftcdn.net/jpg/17/14/04/49/360_F_1714044975_rGXdqRfaHjhcKTWtjKAVv84IGGOlVXCy.jpg"
+        },
+        {
+            name: "Textile & Yarn",
+            description: "Precision-molded HDPE baby cones and bobbins designed for high-speed winding in modern textile mills.",
+            image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/77_cd384c.jpg"
+        },
+        {
+            name: "Retail & FMCG",
+            description: "Custom-printed, visually appealing bags for wholesale and retail distribution of rice, sugar, flour, and FMCG goods.",
+            image: "https://yasmapolysacks.com/wp-content/uploads/2023/12/hdpe-bags-500x500-1.webp"
+        }
+    ],
+    productApplications: [
+        {
+            name: "HDPE Tarpaulins",
+            description: "Heavy-duty waterproof and weather-resistant covers designed to protect valuable industrial and agricultural goods from extreme conditions.",
+            applications: ["Transportation & Truck Covers", "Monsoon Storage Sheds", "Construction Site Protection", "Agricultural Produce Covering", "Temporary Pond Liners"],
+            image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827112/48_t9lkly.jpg"
+        },
+        {
+            name: "HDPE Polysack Bags",
+            description: "High-strength, durable woven packaging solutions engineered for the safe bulk handling and transit of dry granules and powders.",
+            applications: ["Cement & Wall Putty Packaging", "Fertilizers & Agro-Chemicals", "Food Grains, Rice & Sugar", "Poultry & Animal Feed", "Mining & Mineral Resources"],
+            image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827089/71_sonqlg.jpg"
+        },
+        {
+            name: "HDPE Woven Fabric Baby Rolls",
+            description: "Precision-molded HDPE cones and rolls crafted for high-speed yarn winding, ensuring seamless operations in modern textile manufacturing.",
+            applications: ["Cotton Yarn Winding", "Synthetic Yarn Processing", "Commercial Textile Mills", "High-Speed Spinning", "Dyeing Operations"],
+            image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/77_cd384c.jpg"
+        },
+        {
+            name: "HDPE Splitted Rolls",
+            description: "Continuous woven fabric rolls slit to specific, customizable widths for automated wrapping machinery and custom fabrications.",
+            applications: ["Heavy Steel Coil Wrapping", "Industrial Paper Roll Packaging", "Automotive Tyre Wrapping", "Custom Bag Making", "Construction Site Curtains"],
+            image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/19_rnm7mt.jpg"
+        }
+    ],
     contact: {
         phone: "+91 6358811335",
         phoneSecondary: " +91 8238619900",

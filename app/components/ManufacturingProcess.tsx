@@ -66,17 +66,18 @@ export default function ManufacturingProcess() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-50px" }}
                                     transition={{ delay: 0.1 }}
-                                    className="grid md:grid-cols-2 items-stretch"
+                                    className="flex flex-col md:flex-row items-stretch overflow-hidden group/container"
                                 >
-                                    <div className={`relative aspect-[3/2] md:aspect-auto overflow-hidden ${isEven ? 'md:order-1' : 'md:order-2'}`}>
-                                        <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
-                                        <div className="absolute top-0 left-0 w-16 h-16 bg-primary flex items-center justify-center">
+                                    <div className={`relative aspect-[3/2] md:aspect-auto overflow-hidden text-white w-full md:w-1/2 transition-all duration-700 ease-in-out cursor-default ${isEven ? 'md:order-1' : 'md:order-2'}`}>
+                                        <img src={step.image} alt={step.title} className="w-full h-full object-cover transition-transform duration-700" />
+
+                                        {/* Step Number Badge */}
+                                        <div className="absolute top-0 left-0 w-16 h-16 bg-primary flex items-center justify-center z-10 shadow-lg group-hover/container:bg-secondary transition-colors duration-500">
                                             <span className="text-white font-extrabold text-lg">{String(step.step).padStart(2, '0')}</span>
                                         </div>
-
                                     </div>
-                                    <div className={`bg-[#f8f8f8] p-8 lg:p-12 flex flex-col justify-center border border-gray-200 ${isEven ? 'md:order-2' : 'md:order-1'}`}>
-                                        <h4 className="text-lg font-extrabold text-secondary uppercase tracking-wider mb-4">{step.title}</h4>
+                                    <div className={`bg-[#f8f8f8] p-8 lg:p-12 flex flex-col justify-center border border-gray-200 transition-all duration-700 ease-in-out w-full md:flex-1 cursor-default ${isEven ? 'md:order-2' : 'md:order-1'}`}>
+                                        <h4 className="text-lg font-extrabold text-secondary uppercase tracking-wider mb-4 transition-colors duration-300">{step.title}</h4>
                                         <p className="text-gray-600 leading-relaxed">{step.description}</p>
                                     </div>
                                 </motion.div>
@@ -100,17 +101,18 @@ export default function ManufacturingProcess() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.1 }}
-                                className="grid md:grid-cols-2 items-stretch"
+                                className="flex flex-col md:flex-row items-stretch overflow-hidden group/container"
                             >
-                                <div className={`relative aspect-[3/2] md:aspect-auto overflow-hidden ${isEven ? 'md:order-1' : 'md:order-2'}`}>
-                                    <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
-                                    <div className="absolute top-0 left-0 w-16 h-16 bg-primary flex items-center justify-center">
+                                <div className={`relative aspect-[3/2] md:aspect-auto overflow-hidden text-white w-full md:w-1/2 transition-all duration-700 ease-in-out cursor-default ${isEven ? 'md:order-1' : 'md:order-2'}`}>
+                                    <img src={step.image} alt={step.title} className="w-full h-full object-cover transition-transform duration-700" />
+
+                                    {/* Step Number Badge */}
+                                    <div className="absolute top-0 left-0 w-16 h-16 bg-primary flex items-center justify-center z-10 shadow-lg group-hover/container:bg-secondary transition-colors duration-500">
                                         <span className="text-white font-extrabold text-lg">{String(step.step).padStart(2, '0')}</span>
                                     </div>
-
                                 </div>
-                                <div className={`bg-[#f8f8f8] p-8 lg:p-12 flex flex-col justify-center border border-gray-200 ${isEven ? 'md:order-2' : 'md:order-1'}`}>
-                                    <h4 className="text-lg font-extrabold text-secondary uppercase tracking-wider mb-4">{step.title}</h4>
+                                <div className={`bg-[#f8f8f8] p-8 lg:p-12 flex flex-col justify-center border border-gray-200 transition-all duration-700 ease-in-out w-full md:flex-1 cursor-default ${isEven ? 'md:order-2' : 'md:order-1'}`}>
+                                    <h4 className="text-lg font-extrabold text-secondary uppercase tracking-wider mb-4 transition-colors duration-300">{step.title}</h4>
                                     <p className="text-gray-600 leading-relaxed">{step.description}</p>
                                 </div>
                             </motion.div>

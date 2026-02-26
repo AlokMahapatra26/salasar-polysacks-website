@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Lenis from "lenis";
+import { usePathname } from "next/navigation";
 
 // Extend Window to include lenis
 declare global {
@@ -11,6 +12,8 @@ declare global {
 }
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
+    const pathname = usePathname();
+
     useEffect(() => {
         const lenis = new Lenis({
             duration: 1.2,
@@ -37,6 +40,12 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
             window.lenis = undefined;
         };
     }, []);
+
+    useEffect(() => {
+        if (window.lenis) {
+            window.lenis.scrollTo(0, { immediate: true });
+        }
+    }, [pathname]);
 
     return <>{children}</>;
 }
