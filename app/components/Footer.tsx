@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Twitter, Linkedin, Facebook } from "lucide-react";
 import { siteData } from "../data/siteData";
 import { products } from "../data/productData";
 
@@ -16,11 +17,15 @@ export default function Footer() {
                             Delivering superior quality HDPE/PP solutions for a global market. Strength in every fiber.
                         </p>
                         <div className="flex gap-2">
-                            {['T', 'In', 'Fb'].map(tech => (
-                                <div key={tech} className="w-9 h-9 bg-white/10 flex items-center justify-center text-xs text-gray-400 hover:bg-primary hover:text-white transition-colors cursor-pointer font-bold uppercase">
-                                    {tech}
-                                </div>
-                            ))}
+                            <a href="#" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
+                                <Twitter size={16} />
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
+                                <Linkedin size={16} />
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
+                                <Facebook size={16} />
+                            </a>
                         </div>
                     </div>
 
@@ -61,6 +66,10 @@ export default function Footer() {
                             <li className="flex items-center gap-3">
                                 <span className="text-primary text-xs font-bold">▸</span>
                                 <span>{siteData.contact.phone}</span>
+                            </li>
+                            <li className="flex items-center gap-3">
+                                <span className="text-primary text-xs font-bold">▸</span>
+                                <span><span className="text-gray-400">GST:</span> {siteData.contact.gstNumber}</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="text-primary text-xs font-bold">▸</span>

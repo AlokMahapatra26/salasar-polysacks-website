@@ -193,6 +193,7 @@ export const siteData = {
         phone: "+91 6358811335",
         phoneSecondary: " +91 8238619900",
         email: "info@salasarpolysacks.com",
+        gstNumber: "26ABDFS2230C1ZR",
         addressLine1: "Plot No, 4, Sr. No. 46/1-P , Daman Ganga Ind, Estate ",
         addressLine2: "Naroli Road , Athal , Silvassa (U.T.) ",
         addressCountry: "India",

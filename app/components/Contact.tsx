@@ -139,6 +139,16 @@ export default function Contact() {
                                         <p className="text-gray-400">{siteData.contact.businessHoursSunday}</p>
                                     </div>
                                 </div>
+
+                                <div className="flex items-start gap-4">
+                                    <div className="w-10 h-10 bg-white/10 flex items-center justify-center text-primary shrink-0">
+                                        <span className="font-extrabold text-sm">₹</span>
+                                    </div>
+                                    <div>
+                                        <div className="font-bold text-sm uppercase tracking-wider">GST Number</div>
+                                        <p className="text-gray-400 mt-1">{siteData.contact.gstNumber}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </motion.div>

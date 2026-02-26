@@ -35,8 +35,10 @@ export default function Navbar() {
                             <span>{siteData.contact.phone}</span>
                         </a>
                     </div>
-                    <div className="hidden sm:block text-white/60 font-bold uppercase tracking-wider text-[10px]">
-                        ISO 9001:2015 Certified
+                    <div className="hidden sm:flex items-center gap-4 text-white/60 font-bold uppercase tracking-wider text-[10px]">
+                        <span>GST: {siteData.contact.gstNumber}</span>
+                        <div className="w-[1px] h-3 bg-white/20"></div>
+                        <span>ISO 9001:2015 Certified</span>
                     </div>
                 </div>
             </div>
@@ -45,9 +47,9 @@ export default function Navbar() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-20">
                         {/* Logo */}
-                        <Link href="/" className="flex items-center gap-3">
-                            <img src={siteData.global.logo} alt="Salasar Polysacks Logo" className="h-12 w-auto object-contain" />
-                            <span className="text-xl font-extrabold tracking-tight text-secondary uppercase">
+                        <Link href="/" className="flex items-center gap-2 sm:gap-3 shrink-0">
+                            <img src={siteData.global.logo} alt="Salasar Polysacks Logo" className="h-9 sm:h-12 w-auto object-contain" />
+                            <span className="text-[15px] sm:text-xl font-extrabold tracking-tight text-secondary uppercase whitespace-nowrap">
                                 Salasar <span className="text-primary">Polysacks</span>
                             </span>
                         </Link>
