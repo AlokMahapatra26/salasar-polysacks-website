@@ -235,9 +235,9 @@ export const products: ProductData[] = [
         ],
     },
     {
-        slug: "hdpe-splitted-rolls",
-        name: "HDPE Splitted Rolls",
-        tagline: "High-quality splitted rolls for diverse industrial applications",
+        slug: "hdpe-slitted-rolls",
+        name: "HDPE Slitted Rolls",
+        tagline: "High-quality slitted rolls for diverse industrial applications",
         image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/19_rnm7mt.jpg",
         heroImage: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/19_rnm7mt.jpg",
         gallery: [
@@ -245,9 +245,9 @@ export const products: ProductData[] = [
             "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827097/30_x0ry20.jpg",
             "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827090/36_vdhord.jpg"
         ],
-        description: "Premium HDPE splitted rolls manufactured with precision for high tensile strength and durability, suitable for various packaging and industrial needs.",
+        description: "Premium HDPE slitted rolls manufactured with precision for high tensile strength and durability, suitable for various packaging and industrial needs.",
         detailedDescription: [
-            "Our HDPE Splitted Rolls are produced using top-grade High-Density Polyethylene to ensure superior strength and flexibility.",
+            "Our HDPE Slitted Rolls are produced using top-grade High-Density Polyethylene to ensure superior strength and flexibility.",
             "These rolls are ideal for manufacturing smaller woven bags, wrapping materials, and specialized packaging solutions.",
             "Available in multiple colors and specifications to meet standard and customized industrial requirements."
         ],

@@ -9,7 +9,7 @@ export const siteData = {
                 name: "Tarpaulins", href: "/products/tarpaulins", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827112/48_t9lkly.jpg"
             },
             { name: "Baby Cones", href: "/products/hdpe-baby-cones", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/77_cd384c.jpg" },
-            { name: "Splitted Rolls", href: "/products/hdpe-splitted-rolls", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/19_rnm7mt.jpg" },
+            { name: "Slitted Rolls", href: "/products/hdpe-slitted-rolls", image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/19_rnm7mt.jpg" },
         ],
         video: {
             videoUrl: "https://res.cloudinary.com/dsjgnpsjv/video/upload/v1771833899/FINAL_yjeaev.mp4",
@@ -183,7 +183,7 @@ export const siteData = {
             image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/77_cd384c.jpg"
         },
         {
-            name: "HDPE Splitted Rolls",
+            name: "HDPE Slitted Rolls",
             description: "Continuous woven fabric rolls slit to specific, customizable widths for automated wrapping machinery and custom fabrications.",
             applications: ["Heavy Steel Coil Wrapping", "Industrial Paper Roll Packaging", "Automotive Tyre Wrapping", "Custom Bag Making", "Construction Site Curtains"],
             image: "https://res.cloudinary.com/dsjgnpsjv/image/upload/v1771827092/19_rnm7mt.jpg"
