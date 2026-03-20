@@ -8,7 +8,7 @@ import { products } from "../data/productData";
 import { Turnstile } from '@marsidev/react-turnstile';
 
 export default function Contact() {
-    const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+    const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error" | "captcha_error">("idle");
     const [subject, setSubject] = useState("General Inquiry");
     const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
@@ -249,7 +249,10 @@ export default function Contact() {
                                 <Turnstile
                                     siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''}
                                     onSuccess={(token) => setTurnstileToken(token)}
-                                    onError={() => setStatus("error")}
+                                    onError={(error) => {
+                                        console.error("Turnstile error details:", error);
+                                        setStatus("captcha_error");
+                                    }}
                                     options={{
                                         theme: 'light',
                                         size: 'normal'
@@ -273,6 +276,11 @@ export default function Contact() {
                             {status === "error" && (
                                 <div className="p-4 bg-red-100 text-red-800 text-sm font-bold text-center border-l-4 border-red-500">
                                     There was an error sending your message. Please try again.
+                                </div>
+                            )}
+                            {status === "captcha_error" && (
+                                <div className="p-4 bg-red-100 text-red-800 text-sm font-bold text-center border-l-4 border-red-500">
+                                    Security check failed to load. To test on localhost, add 'localhost' to your Cloudflare Turnstile dashboard.
                                 </div>
                             )}
                         </form>

@@ -80,8 +80,10 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div className="text-xs text-gray-600 uppercase tracking-wider">
-                        © {new Date().getFullYear()} Salasar Polysacks. All rights reserved.
+                    <div className="text-xs text-gray-600 uppercase tracking-wider flex flex-col gap-2 md:flex-row md:items-center md:gap-3">
+                        <span>© {new Date().getFullYear()} Salasar Polysacks. All rights reserved.</span>
+                        <span className="hidden md:block text-gray-700">|</span>
+                        <span>Built by <a href="http://www.davlabs.in" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors font-bold">DAVLABS</a></span>
                     </div>
                     <div className="flex gap-8 text-xs text-gray-600 uppercase tracking-wider">
                         <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
